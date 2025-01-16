@@ -1,15 +1,19 @@
+import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css'
-import Increment from './components/Increment'
-import SimpleForm from './components/SimpleForm'
-import TodoList from './components/TodoList'
+import MainLayout from './layouts/MainLayout';
+import Home from './pages/Home';
+import TodoListPage from './pages/TodoListPage'
 
 function App() {
   return (
-    <>
-      <SimpleForm />
-      {/*<Increment/>*/}
-      {/*<TodoList/>*/}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="todos" element={<TodoListPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

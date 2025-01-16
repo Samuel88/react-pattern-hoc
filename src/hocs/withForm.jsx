@@ -12,11 +12,11 @@ const withForm = (WrappedComponent, initialValue) => {
             }))
         }
 
-        const handleSubmit = (event) => {
-            event.preventDefault();
-        }
+        const resetInput = () => {
+            setFormData(initialValue);
+        };
 
-        return <WrappedComponent handleSubmit={handleSubmit} handleInputChange={handleInputChange} formData={formData} {...props}/>
+        return <WrappedComponent resetInput={resetInput} handleInputChange={handleInputChange} formData={formData} {...props}/>
     }
 }
 
